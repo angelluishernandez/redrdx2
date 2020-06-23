@@ -6,16 +6,19 @@ const fizzBuzzToN = (n) => {
 	const arr = Array.apply(null, Array(n));
 
 	arr.forEach((el, index) => {
-		let i = (index += 1);
+		index++;
 
-		if (i % 5 === 0 && i % 3 === 0) {
+		const isFizz = index % 3 === 0;
+		const isBuzz = index % 5 === 0;
+
+		if (isFizz && isBuzz) {
 			arr[index] = "FizzBuzz";
-		} else if (i % 5 === 0) {
+		} else if (isBuzz) {
 			arr[index] = "Buzz";
-		} else if (i % 3 === 0) {
+		} else if (isFizz) {
 			arr[index] = "Fizz";
 		} else {
-			arr[index] = i;
+			arr[index] = index;
 		}
 	});
 
